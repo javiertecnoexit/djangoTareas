@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <strong>
+                <h2 class="text-center"> Tareas pendientes </h2>
+            </strong>
+
+                <ul class="list-group">
+                    {% for tarea in Tareas %}
+                        <a class="list-group-item" href="{% url 'task_detail' tarea.id %}">
+                            
+                                <h2>{{tarea.titulo}}</h2>
+                                
+                                <p>
+                                    {% if tarea.importante == True %}
+                                        <p> tarea importante </p>
+                                    {% endif %}
+                                </p>
+                            
+                        </a>
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+</main>
+{% endblock content %}
+
+
+
+
+
